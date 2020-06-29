@@ -1,8 +1,11 @@
 package com.silverstar.mvvmtodoapp.data.dao
 
+import androidx.room.Dao
+import androidx.room.Insert
 import com.silverstar.mvvmtodoapp.data.entity.Todo
 
+@Dao
 interface TodoDao {
-
-    fun insertTodo(todo: Todo)
+    @Insert
+    fun insertTodo(vararg todo: Todo)
 }
