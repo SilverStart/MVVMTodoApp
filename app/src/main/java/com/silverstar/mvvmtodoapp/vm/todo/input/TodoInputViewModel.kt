@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveDataReactiveStreams
 import androidx.lifecycle.Transformations
 import com.silverstar.mvvmtodoapp.BR
 import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
-import com.silverstar.mvvmtodoapp.business.todo.input.SaveRequest
+import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoRequest
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import io.reactivex.rxjava3.core.BackpressureStrategy
 import io.reactivex.rxjava3.subjects.BehaviorSubject
@@ -15,13 +15,13 @@ import io.reactivex.rxjava3.subjects.PublishSubject
 import javax.inject.Inject
 
 @ActivityRetainedScoped
-class TodoInputViewModel @Inject constructor(processorHolder: ProcessorHolder<SaveRequest, Result<Boolean>>) :
+class TodoInputViewModel @Inject constructor(processorHolder: ProcessorHolder<SaveTodoRequest, Result<Boolean>>) :
     BaseObservable() {
 
     private val _title = BehaviorSubject.createDefault<String>("")
     private val _content = BehaviorSubject.createDefault<String>("")
 
-    private val _saveEvent = PublishSubject.create<SaveRequest>()
+    private val _saveEvent = PublishSubject.create<SaveTodoRequest>()
 
     val canSave: LiveData<Boolean> = Transformations.map(
         LiveDataReactiveStreams.fromPublisher(_title.toFlowable(BackpressureStrategy.LATEST))
@@ -59,6 +59,6 @@ class TodoInputViewModel @Inject constructor(processorHolder: ProcessorHolder<Sa
     }
 
     fun save() {
-        _saveEvent.onNext(SaveRequest(_title.value, _content.value))
+        _saveEvent.onNext(SaveTodoRequest(_title.value, _content.value))
     }
 }

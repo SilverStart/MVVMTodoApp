@@ -11,9 +11,9 @@ import javax.inject.Inject
 class SaveTodoProcessorHolder @Inject constructor(
     todoDao: TodoDao,
     schedulerProvider: SchedulerProvider
-) : ProcessorHolder<@JvmSuppressWildcards SaveRequest, @JvmSuppressWildcards Result<Boolean>> {
+) : ProcessorHolder<@JvmSuppressWildcards SaveTodoRequest, @JvmSuppressWildcards Result<Boolean>> {
 
-    override val processor: ObservableTransformer<SaveRequest, Result<Boolean>> =
+    override val processor: ObservableTransformer<SaveTodoRequest, Result<Boolean>> =
         ObservableTransformer { source ->
             source.switchMap {
                 Observable

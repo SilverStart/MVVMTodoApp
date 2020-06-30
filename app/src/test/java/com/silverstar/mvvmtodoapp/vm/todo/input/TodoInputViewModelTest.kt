@@ -4,7 +4,7 @@ import InstantExecutorExtension
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
-import com.silverstar.mvvmtodoapp.business.todo.input.SaveRequest
+import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoRequest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @DisplayName("TodoInputViewModel 클래스")
 class TodoInputViewModelTest {
 
-    private val processorHolder = mock<ProcessorHolder<SaveRequest, Result<Boolean>>>()
+    private val processorHolder = mock<ProcessorHolder<SaveTodoRequest, Result<Boolean>>>()
 
     private lateinit var viewModel: TodoInputViewModel
 
@@ -104,7 +104,7 @@ class TodoInputViewModelTest {
         }
     }
 
-    private fun mockProcessorHolder(observableTransformer: ObservableTransformer<SaveRequest, Result<Boolean>>) {
+    private fun mockProcessorHolder(observableTransformer: ObservableTransformer<SaveTodoRequest, Result<Boolean>>) {
         whenever(processorHolder.processor).thenReturn(observableTransformer)
     }
 }

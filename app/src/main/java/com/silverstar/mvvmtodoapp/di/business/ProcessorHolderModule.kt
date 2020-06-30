@@ -1,7 +1,7 @@
 package com.silverstar.mvvmtodoapp.di.business
 
 import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
-import com.silverstar.mvvmtodoapp.business.todo.input.SaveRequest
+import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoRequest
 import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoProcessorHolder
 import dagger.Binds
 import dagger.Module
@@ -13,5 +13,5 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 abstract class ProcessorHolderModule {
 
     @Binds
-    abstract fun bindSaveTodoProcessorHolder(saveTodoProcessorHolder: SaveTodoProcessorHolder): ProcessorHolder<SaveRequest, Result<Boolean>>
+    abstract fun bindSaveTodoProcessorHolder(saveTodoProcessorHolder: SaveTodoProcessorHolder): ProcessorHolder<SaveTodoRequest, Result<Boolean>>
 }

@@ -29,7 +29,7 @@ class SaveTodoProcessorHolderTest {
         fun itReturnsTrueInSuccess() {
             processorHolder = SaveTodoProcessorHolder(todoDao, schedulerProvider)
 
-            Observable.just(SaveRequest("title", "content"))
+            Observable.just(SaveTodoRequest("title", "content"))
                 .compose(processorHolder.processor)
                 .test()
                 .assertValue(Result.success(true))
@@ -52,7 +52,7 @@ class SaveTodoProcessorHolderTest {
         fun itReturnsFalseInFailure() {
             processorHolder = SaveTodoProcessorHolder(todoDao, schedulerProvider)
 
-            Observable.just(SaveRequest("title", "content"))
+            Observable.just(SaveTodoRequest("title", "content"))
                 .compose(processorHolder.processor)
                 .test()
                 .assertValue(Result.failure(error))
