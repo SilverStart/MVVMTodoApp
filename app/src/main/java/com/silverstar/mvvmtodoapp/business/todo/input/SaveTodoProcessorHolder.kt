@@ -19,6 +19,7 @@ class SaveTodoProcessorHolder @Inject constructor(
                 Observable
                     .fromCallable { todoDao.insertTodo(Todo(it.title, it.content)) }
                     .map { Result.success(true) }
+                    .onErrorReturn { Result.failure(it) }
                     .subscribeOn(schedulerProvider.io())
             }.observeOn(schedulerProvider.ui())
         }
