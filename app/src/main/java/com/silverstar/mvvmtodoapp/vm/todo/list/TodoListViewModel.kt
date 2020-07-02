@@ -5,18 +5,22 @@ import androidx.lifecycle.LiveDataReactiveStreams
 import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
 import com.silverstar.mvvmtodoapp.data.entity.Todo
 import com.silverstar.mvvmtodoapp.vm.util.Event
+import dagger.hilt.android.scopes.ActivityRetainedScoped
 import io.reactivex.rxjava3.core.BackpressureStrategy
 import io.reactivex.rxjava3.core.Flowable
-import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
+import javax.inject.Inject
 
-class TodoListViewModel constructor(processorHolder: ProcessorHolder<Unit, Result<List<Todo>>>) {
+@ActivityRetainedScoped
+class TodoListViewModel @Inject constructor(processorHolder: ProcessorHolder<Unit, Result<List<Todo>>>) {
 
-    private val _loadTodoListRequest = PublishSubject.create<Unit>()
+    private val _loadTodoListRequest = BehaviorSubject.create<Unit>()
 
     private val _loadTodoListResult: Flowable<Result<List<Todo>>> =
         _loadTodoListRequest
             .compose(processorHolder.processor)
-            .share()
+            .publish()
+            .autoConnect()
             .toFlowable(BackpressureStrategy.LATEST)
 
     val todoList: LiveData<List<Todo>> = LiveDataReactiveStreams.fromPublisher(
@@ -33,5 +37,9 @@ class TodoListViewModel constructor(processorHolder: ProcessorHolder<Unit, Resul
 
     fun loadTodoList() {
         _loadTodoListRequest.onNext(Unit)
+    }
+
+    init {
+        loadTodoList()
     }
 }

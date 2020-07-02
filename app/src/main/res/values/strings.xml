@@ -3,4 +3,6 @@
     <string name="title">title</string>
     <string name="content">content</string>
     <string name="saved">saved!!!!</string>
+    <string name="todo_input">Todo Input</string>
+    <string name="todo_list">Todo List</string>
 </resources>
