@@ -1,4 +1,4 @@
-package com.silverstar.mvvmtodoapp.business.util
+package com.silverstar.base.business.util
 
 import io.reactivex.rxjava3.core.Scheduler
 

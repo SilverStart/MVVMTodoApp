@@ -2,7 +2,7 @@ package com.silverstar.mvvmtodoapp.vm.todo.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataReactiveStreams
-import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
+import com.silverstar.base.business.ProcessorHolder
 import com.silverstar.mvvmtodoapp.data.entity.Todo
 import com.silverstar.mvvmtodoapp.vm.util.Event
 import dagger.hilt.android.scopes.ActivityRetainedScoped

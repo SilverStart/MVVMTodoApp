@@ -1,6 +1,6 @@
 package com.silverstar.mvvmtodoapp.di.business
 
-import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
+import com.silverstar.base.business.ProcessorHolder
 import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoProcessorHolder
 import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoRequest
 import com.silverstar.mvvmtodoapp.business.todo.list.LoadTodoListProcessorHolder

@@ -1,8 +1,8 @@
-package com.silverstar.mvvmtodoapp.ui.base.adapter
+package com.silverstar.base.ui.adapter
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.silverstar.mvvmtodoapp.BR
+import com.silverstar.base.BR
 
 class DataBindingViewHolder<T>(private val binding: ViewDataBinding) :
     RecyclerView.ViewHolder(binding.root) {

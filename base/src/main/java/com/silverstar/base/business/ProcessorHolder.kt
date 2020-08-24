@@ -1,4 +1,4 @@
-package com.silverstar.mvvmtodoapp.business.base
+package com.silverstar.base.business
 
 import io.reactivex.rxjava3.core.ObservableTransformer
 

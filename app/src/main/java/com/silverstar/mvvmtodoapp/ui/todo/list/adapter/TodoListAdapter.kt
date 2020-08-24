@@ -3,7 +3,7 @@ package com.silverstar.mvvmtodoapp.ui.todo.list.adapter
 import androidx.recyclerview.widget.DiffUtil
 import com.silverstar.mvvmtodoapp.R
 import com.silverstar.mvvmtodoapp.data.entity.Todo
-import com.silverstar.mvvmtodoapp.ui.base.adapter.DataBindingAdapter
+import com.silverstar.base.ui.adapter.DataBindingAdapter
 
 class TodoListAdapter : DataBindingAdapter<Todo>(TodoDiffItemCallback()) {
 

@@ -3,7 +3,7 @@ package com.silverstar.mvvmtodoapp.vm.todo.list
 import InstantExecutorExtension
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
+import com.silverstar.base.business.ProcessorHolder
 import com.silverstar.mvvmtodoapp.data.entity.Todo
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer

@@ -1,4 +1,4 @@
-package com.silverstar.mvvmtodoapp.ui.base.adapter
+package com.silverstar.base.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

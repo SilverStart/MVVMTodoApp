@@ -3,7 +3,7 @@ package com.silverstar.mvvmtodoapp.vm.todo.input
 import InstantExecutorExtension
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
+import com.silverstar.base.business.ProcessorHolder
 import com.silverstar.mvvmtodoapp.business.todo.input.SaveTodoRequest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
@@ -30,11 +30,11 @@ class TodoInputViewModelTest {
         @Test
         @DisplayName("canSave 는 false 를 리턴한다.")
         fun canSaveReturnsFalse() {
-            mockProcessorHolder(ObservableTransformer {
+            mockProcessorHolder {
                 it.switchMap {
                     Observable.just(Result.success(true))
                 }
-            })
+            }
 
             viewModel = TodoInputViewModel(processorHolder)
 
@@ -55,11 +55,11 @@ class TodoInputViewModelTest {
         @Test
         @DisplayName("canSave 는 true 를 리턴한다.")
         fun canSaveReturnsTrue() {
-            mockProcessorHolder(ObservableTransformer {
+            mockProcessorHolder {
                 it.switchMap {
                     Observable.just(Result.success(true))
                 }
-            })
+            }
 
             viewModel = TodoInputViewModel(processorHolder)
 
@@ -84,11 +84,11 @@ class TodoInputViewModelTest {
             @Test
             @DisplayName("isSaved 를 true 로 변경한다.")
             fun itChangesIsSavedTrue() {
-                mockProcessorHolder(ObservableTransformer {
+                mockProcessorHolder {
                     it.switchMap {
                         Observable.just(Result.success(true))
                     }
-                })
+                }
 
                 viewModel = TodoInputViewModel(processorHolder)
 

@@ -1,6 +1,6 @@
 package com.silverstar.mvvmtodoapp.di.scheduler
 
-import com.silverstar.mvvmtodoapp.business.util.SchedulerProvider
+import com.silverstar.base.business.util.SchedulerProvider
 import com.silverstar.mvvmtodoapp.business.util.SchedulerProviderImpl
 import dagger.Binds
 import dagger.Module

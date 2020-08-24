@@ -1,9 +1,9 @@
 package com.silverstar.mvvmtodoapp.business.todo.input
 
-import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
-import com.silverstar.mvvmtodoapp.business.util.SchedulerProvider
 import com.silverstar.mvvmtodoapp.data.dao.TodoDao
 import com.silverstar.mvvmtodoapp.data.entity.Todo
+import com.silverstar.base.business.ProcessorHolder
+import com.silverstar.base.business.util.SchedulerProvider
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import javax.inject.Inject

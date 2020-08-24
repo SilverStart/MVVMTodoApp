@@ -3,7 +3,7 @@ package com.silverstar.mvvmtodoapp.vm.todo.detail
 import InstantExecutorExtension
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.silverstar.mvvmtodoapp.business.base.ProcessorHolder
+import com.silverstar.base.business.ProcessorHolder
 import com.silverstar.mvvmtodoapp.data.entity.Todo
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
@@ -44,11 +44,11 @@ class TodoDetailViewModelTest {
 
                 viewModel = TodoDetailViewModel(processorHolder)
 
-                viewModel.todo.observeForever { }
+                viewModel.loadedData.observeForever { }
 
                 viewModel.load(1)
 
-                assertEquals(response, viewModel.todo.value)
+                assertEquals(response, viewModel.loadedData.value)
             }
         }
     }
